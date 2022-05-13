@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,10 @@ namespace Code
     {
         static void Main(string[] args)
         {
+            int bufSize = 16384;
+            Stream inStream = Console.OpenStandardInput(bufSize);
+            Console.SetIn(new StreamReader(inStream, Console.InputEncoding, false, bufSize));
+
             bool encrypt = true;
             Console.WriteLine("Welcome to the Zaliphyrian Cipher. Would you like to encrypt a message, or decrypt an image? (Type 'encrypt' or 'decrypt'. Default is encrypt.");
             string ja = Console.ReadLine();
